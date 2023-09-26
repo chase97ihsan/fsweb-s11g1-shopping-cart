@@ -5,6 +5,7 @@ import useLocalStorage from "../hooks/UseLocalStorage";
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
+  const [cart, setCart] = useLocalStorage("S11", []);
   const addItem = (item) => {
     // verilen itemi sepete ekleyin
     setCart([...cart, item]);
@@ -16,7 +17,7 @@ export const CartContextProvider = ({ children }) => {
   const checkOut = () => {
     setCart([]);
   };
-  const [cart, setCart] = useLocalStorage("S11", []);
+
   return (
     <CartContext.Provider value={{ cart, addItem, removeItem, checkOut }}>
       {children}

@@ -11,7 +11,7 @@ export default function useLocalStorage(key, defaultValue) {
     }
   });
   const setLocalStorage = (newValue) => {
-    localStorage.setItem(key, JSON.stringify(defaultValue));
+    localStorage.setItem(key, JSON.stringify(newValue));
     setValue(newValue);
   };
   return [value, setLocalStorage];
